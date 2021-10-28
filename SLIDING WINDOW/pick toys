@@ -1,0 +1,19 @@
+//https://practice.geeksforgeeks.org/problems/maximize-toys0331/1
+class Solution{
+public:
+    int toyCount(int N, int K, vector<int> arr)
+    {
+        int count=0,i=0;
+        sort(arr.begin(),arr.end());
+        while(K>=0 && i<N)
+        {
+            count++;
+            K=K-arr[i];
+            i++;
+        }
+        if(K<0)
+            return count-1;
+        return count;
+        // code here
+    }
+};
