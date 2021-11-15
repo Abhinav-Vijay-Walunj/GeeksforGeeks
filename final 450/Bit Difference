@@ -1,0 +1,17 @@
+//https://practice.geeksforgeeks.org/problems/bit-difference-1587115620/1#
+int countBitsFlip(int a, int b){
+        int c=0,ans;
+        ans=a^b;
+        while(ans>0)
+        {
+            if(ans%2 == 1)
+            {
+                c++;
+                
+            }
+            ans=ans/2;
+        }
+        return c;
+        // Your logic here
+        
+    }
