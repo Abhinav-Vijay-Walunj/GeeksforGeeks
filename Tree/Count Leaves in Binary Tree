@@ -1,0 +1,12 @@
+int countLeaves(Node* root)
+{
+    if(root == NULL)
+    {
+        return 0;//if we go to null node
+    }
+    if(root->left == NULL && root->right == NULL)//if both sides of node are empty then only it counts
+        return 1;
+    else
+        return countLeaves(root->left)+countLeaves(root->right);//we call it recursively on next nodes.
+  // Your code here
+}
