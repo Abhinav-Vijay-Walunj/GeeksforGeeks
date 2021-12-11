@@ -1,0 +1,9 @@
+int getSize(Node* node)
+{
+    if(node == NULL)
+        return 0;//node is null ,means empty so no node
+    else
+        return getSize(node->left)+1+getSize(node->right);//here it will take count from left +roght tree and 1 of parent
+    
+   // Your code here
+}
