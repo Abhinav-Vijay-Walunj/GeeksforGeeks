@@ -1,0 +1,11 @@
+long int sumBT(Node* root)
+{
+    
+    
+    if(root == NULL)
+        return 0;
+       
+    else
+        return sumBT(root->left)+root->key+sumBT(root->right);
+    // Code here
+}
