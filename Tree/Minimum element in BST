@@ -1,0 +1,11 @@
+//in bst we have to get left most element in tree.
+int minValue(Node* root) {
+    //Node* temp=root;
+    while(root->left!=NULL)
+    {
+        root=root->left;//we move left node
+    }
+    return root->data;
+    // Code here
+}
+
