@@ -1,0 +1,16 @@
+vector<int> inOrder(Node* root) {
+        vector<int> v;
+        trav(root,v);
+        return v;
+        // Your code here
+    }
+    void trav(Node* root,vector<int> &v)
+    {
+        if(root == NULL)
+        {
+            return ;
+        }
+        trav(root->left,v);
+        v.push_back(root->data);
+        trav(root->right,v);
+    }
