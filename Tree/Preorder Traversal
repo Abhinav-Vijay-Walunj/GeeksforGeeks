@@ -1,0 +1,14 @@
+vector <int> preorder(Node* root)
+{
+    vector<int> vec;
+    if(root == NULL)
+    {
+        return;
+    }
+    vec.push_back(root->data);
+    preorder(root->left);
+    preorder(root->right);
+    
+    return vec;
+  // Your code here
+}
