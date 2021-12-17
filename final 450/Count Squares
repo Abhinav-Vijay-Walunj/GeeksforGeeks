@@ -1,0 +1,13 @@
+int countSquares(int N) {
+        int c=0;
+        int i=1,j=1;
+        while(j<N)
+        {
+            i++;
+            j=i*i;
+            c++;
+            
+        }
+        return c;
+        // code here
+    }
