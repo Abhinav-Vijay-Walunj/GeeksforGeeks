@@ -1,0 +1,33 @@
+int doUnion(int a[], int n, int b[], int m)  {
+        set<int> s;
+        
+        for(int i=0;i<n;i++)
+        {
+            s.insert(a[i]);
+        }
+        for(int j=0;j<m;j++)
+        {
+            s.insert(b[j]);
+        }
+        return s.size();
+        //code here
+    }
+    /*in place of set we can use map in which it sores only sibgle occurrence character,
+    naive approach will be to check for each element of a is present in b or not and add or not according to tjat.
+    sorting-Union: 
+
+Initialize union U as empty.
+Find smaller m and n and sort the smaller array.
+Copy the smaller array to U.
+For every element x of a larger array, do the following
+Binary Search x in the smaller array. If, x is not present, then copy it to U.
+Return U.
+Intersection: 
+
+Initialize intersection I as empty.
+Find smaller of m and n and sort the smaller array.
+For every element x of a larger array, do the following
+Binary Search x in the smaller array. If x is present, then copy it to I.
+Return I.
+Time complexity of this method is min(mLogm + nLogm, mLogn + nLogn) which can also be written as O((m+n)Logm, (m+n)Logn). This approach works much better than the previous approach when the difference between the sizes of two arrays is significant.
+*/
