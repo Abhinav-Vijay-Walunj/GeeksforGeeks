@@ -1,0 +1,29 @@
+string isSubset(int a1[], int a2[], int n, int m) {
+    string ans;
+    if(m>n)
+    {
+        ans="No";
+        return ans;
+    }
+    int t=m;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(a1[i] == a2[j])
+            {
+                t--;
+            }
+        }
+    }
+    if( t==0)
+    {
+        ans="Yes";
+        return ans;
+    }
+    else
+    {
+        ans="No";
+        return ans;
+    }
+}
