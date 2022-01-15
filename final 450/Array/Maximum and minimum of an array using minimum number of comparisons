@@ -1,0 +1,31 @@
+//in brute force way simply take first two as min and max and then star cpmapreing them as linear time with comparing each of them.
+/*the most efficient way is to simply divide and then compare whic is implemented below.*/
+struct Pair getMinMax(int arr[], int low,
+                                 int high)
+{
+    struct Pair minmax, mml, mmr;     
+    int mid;
+    
+    // If there is only one element 
+    if (low == high)
+    {
+        minmax.max = arr[low];
+        minmax.min = arr[low];     
+        return minmax;
+    } 
+    
+    // If there are two elements 
+    if (high == low + 1)
+    { 
+        if (arr[low] > arr[high]) 
+        {
+            minmax.max = arr[low];
+            minmax.min = arr[high];
+        } 
+        else
+        {
+            minmax.max = arr[high];
+            minmax.min = arr[low];
+        } 
+        return minmax;
+    }
