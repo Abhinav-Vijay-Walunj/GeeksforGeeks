@@ -27,3 +27,53 @@ string isSubset(int a1[], int a2[], int n, int m) {
         return ans;
     }
 }
+
+Method 2 (Use Sorting and Binary Search):  
+
+
+Sort arr1[] which takes O(mLogm)
+For each element of arr2[], do binary search for it in sorted arr1[].
+If the element is not found then return 0.
+If all elements are present then return 1.
+
+Method 3 (Use Sorting and Merging ) 
+
+
+Sort both arrays: arr1[] and arr2[] which takes O(mLogm + nLogn)
+Use Merge type of process to see if all elements of sorted arr2[] are present in sorted arr1[].
+
+bool isSubset(int arr1[], int arr2[],
+int m, int n)
+{
+int i = 0, j = 0;
+
+if (m < n)
+return 0;
+
+// Sort both the arrays
+sort(arr1, arr1 + m);
+sort(arr2, arr2 + n);
+
+// Iterate till they donot exceed their sizes
+while (i < n && j < m)
+{
+// If the element is smaller than
+// Move aheaad in the first array
+if (arr1[j] < arr2[i])
+j++;
+// If both are equal, then move
+// both of them forward
+else if (arr1[j] == arr2[i])
+{
+j++;
+i++;
+}
+
+// If we donot have a element smaller
+// or equal to the second array then break
+else if (arr1[j] > arr2[i])
+return 0;
+}
+
+return (i < n) ? false : true;
+}
