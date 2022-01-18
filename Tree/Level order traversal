@@ -1,0 +1,39 @@
+vector<int> levelOrder(Node* node)
+    {
+        vector<int> ans;
+        if(node == NULL)
+        {
+            return ans;
+        }
+        //base case when tree is empty
+        queue<Node*> q;//queue data structure to keep track of visited nodes to get bext level nodes from them
+        q.push(node);//insert the root into queue
+        
+        while(!q.empty())
+        {
+            int size=q.size();
+            vector<int> lev;/stores result for each level
+            
+            for(int i=0;i<size;i++)
+            {
+                Node* node=q.front();
+                q.pop();
+                
+                if(node->left!=NULL)
+                {
+                    q.push(node->left);//if left child of node is not null then push it
+                }
+                if(node->right!=NULL)
+                {
+                    q.push(node->right);//if right child of node is not empty
+                }
+                lev.push_back(node->data);
+            }
+            for(int i=0;i<lev.size();i++)
+            {
+                ans.push_back(lev[i]);//insert every node in lev to ans
+            }
+        }
+        return ans;
+      //Your code here
+    }
