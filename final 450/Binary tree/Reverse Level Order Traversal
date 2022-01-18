@@ -1,0 +1,44 @@
+vector<int> reverseLevelOrder(Node *root)
+{
+    vector<vector<int>> temp;
+    vector<int> ans;
+    
+    if(root == NULL)
+    {
+        return ans;
+    }
+    
+    queue<Node*> q;
+    q.push(root);
+    while(!q.empty())
+    {
+        int s=q.size();
+        vector<int> lvl;
+        for(int i=0;i<s;i++)
+        {
+            Node* root=q.front();
+            q.pop();
+            if(root->left != NULL)
+            {
+                q.push(root->left);
+            }
+            if(root->right != NULL)
+            {
+                q.push(root->right);
+            }
+            lvl.push_back(root->data);
+        }
+        temp.push_back(lvl);
+    }//till here same as level order traversal
+    reverse(temp.begin(),temp.end());//reverse the stored result of level order traversal
+
+for(int i=0;i<temp.size();i++)
+{
+    for(int j=0;j<temp[i].size();j++)
+    {
+        ans.push_back(temp[i][j]);
+    }
+}//this loops will insert one by one element in ans vector whch will be returned after final result .
+   return ans;
+    // code here
+}
