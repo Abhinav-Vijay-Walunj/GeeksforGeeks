@@ -101,17 +101,17 @@ class Solution{
     {
         vector<int> ans;
         Node* temp=NULL;
-        stack<Node*> s;
+        stack<Node*> s;//stack to store nodes as per requirement to process them
         
-        s.push(root);
+        s.push(root);//insert root into it
         while(!s.empty())
         {
-            temp=s.top();
+            temp=s.top();//take the left side node
             //cout<<s.top();
-            s.pop();
-            ans.push_back(temp->data);
+            s.pop();//pop it
+            ans.push_back(temp->data);//get data of it
             
-            if(temp->right != NULL)
+            if(temp->right != NULL)//first insert right and then left so that when we want we get left first and then right
             {
                 s.push(temp->right);
             }
