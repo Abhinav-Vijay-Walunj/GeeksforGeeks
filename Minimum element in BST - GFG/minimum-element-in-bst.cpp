@@ -107,3 +107,16 @@ int minValue(Node* root) {
     return root->data;
     // Code here
 }
+int maxValue(Node* root) {
+    if(root == NULL)
+    {
+        return -1;
+    }
+    //Node* temp=root;
+    while(root->right != NULL)
+    {
+        root=root->right;
+    }
+    return root->data;
+    // Code here
+}
