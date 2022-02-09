@@ -15,11 +15,7 @@ class Solution {
         if(n == 2)
         return b;
     
-        for(int i=2;i<=n;i++)
-        {
-            b+=i*16;
-            
-        }// code here
+        // code here
         return ((8*n*n)+1);
     }
 };
