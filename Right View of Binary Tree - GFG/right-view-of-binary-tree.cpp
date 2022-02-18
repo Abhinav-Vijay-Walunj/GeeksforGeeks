@@ -40,31 +40,20 @@ struct Node
 class Solution
 {
     public:
-    vector<int> v;
-    void rightViewUtil(Node* root,int level,int* max_level)
+    void recursion(Node *root, int level, vector<int> &res)
     {
-         if (root == NULL) return;
- 
-    // If this is the last Node of its level
-    if (*max_level < level)
-    {
-        v.push_back(root->data);
-        *max_level = level;
-    }
- 
-    // Recur for right subtree first,
-    // then left subtree
-    rightViewUtil(root->right, level + 1, max_level);
-    rightViewUtil(root->left, level + 1, max_level);
+        if(root==NULL) return ;
+        if(res.size()==level) res.push_back(root->data);
+        recursion(root->right, level+1, res);
+        recursion(root->left, level+1, res);
     }
     //Function to return list containing elements of right view of binary tree.
     vector<int> rightView(Node *root)
     {
-        int max_level = 0,level=1;
-        rightViewUtil(root, level, &max_level);
-        
-        return v;
-       // Your Code here
+        vector<int> res;
+        recursion(root, 0, res);
+        return res;
+        // here
     }
 };
 
